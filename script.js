@@ -11,6 +11,7 @@ function addWord(one, multi)
 addWord("Lord", "Lords");
 addWord("Wolf", "Wolves");
 addWord("Pickle", "Pickles");
+addWord("Ace", "Aces");
 
 //Slot values
 class Slot
@@ -97,19 +98,41 @@ function generateContent()
 	var type = randomItem(slots);
 	
 	//Name
-	var name = document.getElementById("name");
-	switch(Math.floor(Math.random() * 2))
+	var name = "";
+	switch(randomBetween(0, 5))
 	{
 		//Word of Words
 		case 0:
-			name.innerHTML = randomItem(singular) + " of " + randomItem(plural);
+			name = randomItem(singular) + " of " + randomItem(plural);
 			break;
 			
 		//10^X Words
 		case 1:
-			name.innerHTML = (10 ** (randomBetween(1, 10)) + " " + randomItem(plural));
+			name = (10 ** (randomBetween(1, 10)) + " " + randomItem(plural));
+			break;
+		
+		case 2:
+			name = randomItem(singular);
+			break;
+			
+		case 3:
+			name = "The " + randomItem(singular);
+			break;
+			
+		case 4:
+			var word = randomItem(singular).toUpperCase();
+			for(i = 0; i < word.length - 1; i++)
+			{
+				name += word.charAt(i) + ".";
+			}
+			name += word.charAt(word.length - 1);
+			break;
+			
+		case 5:
+			name = "The " + randomItem(singular) + "breaker";
 			break;
 	}
+	document.getElementById("name").innerHTML = name;
 	
 	//Slot
 	var slot = type.name;
