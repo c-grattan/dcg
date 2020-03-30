@@ -12,6 +12,22 @@ addWord("Lord", "Lords");
 addWord("Wolf", "Wolves");
 addWord("Pickle", "Pickles");
 addWord("Ace", "Aces");
+addWord("Death", "Deaths");
+addWord("Vex", "Vex");
+addWord("Ghaul", "Ghaul");
+addWord("Scream", "Screams");
+addWord("Guardian", "Guardians");
+addWord("Traveller", "Travellers");
+addWord("Space", "Space");
+addWord("Light", "Lights");
+addWord("Dark", "Darkness");
+addWord("Burden", "Burdens");
+addWord("Rat", "Rats");
+addWord("Rabbit", "Rabbits");
+addWord("Thorn", "Thorns");
+addWord("Tommy", "Tommies");
+addWord("Ghoul", "Ghouls");
+addWord("Colony", "Colonies");
 
 //Slot values
 class Slot
@@ -99,7 +115,7 @@ function generateContent()
 	
 	//Name
 	var name = "";
-	switch(randomBetween(0, 5))
+	switch(randomBetween(0, 7))
 	{
 		//Word of Words
 		case 0:
@@ -130,6 +146,22 @@ function generateContent()
 			
 		case 5:
 			name = "The " + randomItem(singular) + "breaker";
+			break;
+			
+		case 6:
+			name = "The Last " + randomItem(singular);
+			break;
+			
+		case 7:
+			var word = randomItem(singular.concat(plural));
+			if(word.toUpperCase().charAt(word.length - 1) == "S")
+			{
+				name = word + "' " + randomItem(plural);
+			}
+			else
+			{
+				name = word + "'s " + randomItem(plural);
+			}
 			break;
 	}
 	document.getElementById("name").innerHTML = name;
