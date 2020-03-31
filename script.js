@@ -110,6 +110,9 @@ function randomBetween(x, y)
 //Creates new content for the videogame Destiny 2
 function generateContent()
 {
+	//Display card if not already shown
+	document.getElementById("card").style.display = "block";
+	
 	//Kinetic, Energy, or Power
 	var type = randomItem(slots);
 	
@@ -168,24 +171,31 @@ function generateContent()
 	
 	//Slot
 	var slot = type.name;
+	document.getElementById("slot").innerHTML = slot;
 	
 	//Icon
 	
 	//Impact
 	var impact = randomBetween(type.min_damage, type.max_damage);
+	document.getElementById("impact").innerHTML = impact;
 	
 	//Range
 	var range = randomBetween(type.min_range, type.max_range);
+	document.getElementById("range").innerHTML = range;
 	
 	//Stability
 	var stability = randomBetween(type.min_stability, type.max_stability);
+	document.getElementById("stability").innerHTML = stability;
 	
 	//Handling
 	var handling = randomBetween(type.min_handling, type.max_handling);
+	document.getElementById("handling").innerHTML = handling;
 	
 	//Reload speed
 	var reload_speed = randomBetween(type.min_reload_speed, type.max_reload_speed);
+	document.getElementById("reload_speed").innerHTML = reload_speed;
 	
 	//RPM
 	var rpm = randomBetween(type.min_rpm, type.max_rpm);
+	document.getElementById("rpm").innerHTML = rpm;
 }
