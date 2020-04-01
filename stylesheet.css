@@ -9,6 +9,16 @@ body
 	font-weight: bold;
 }
 
+#stats
+{
+	float: left;
+}
+
+#right
+{
+	float: right;
+}
+
 #card
 {
 	border: 5px solid black;
@@ -19,6 +29,8 @@ body
 	
 	padding: 5px;
 	text-align: left;
+	
+	overflow: auto;
 }
 
 button

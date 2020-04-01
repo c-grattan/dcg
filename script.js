@@ -204,9 +204,9 @@ function generateContent()
 	
 	//Draw target
 	var ctx = document.getElementById("aa").getContext("2d");
-	var target_radius = 50;
+	var target_radius = 70;
 	
-	ctx.clearRect(0, 0, (target_radius + 1) * 2, (target_radius + 1) * 2);
+	ctx.clearRect(0, 0, (target_radius + 2) * 2, (target_radius + 2) * 2);
 	
 	ctx.strokeStyle = "#000000";
 	for(var i = 0; i < target_radius / 10; i++)
@@ -221,8 +221,8 @@ function generateContent()
 	for(var i = 0; i < randomBetween(1, 100); i++)
 	{
 		ctx.beginPath();
-		var x = randomBetween(0 + (target_radius * (aa/100)), target_radius);
-		var y = randomBetween(0 + (target_radius * (aa/100)), target_radius) - (i * (target_radius * 2) / stability);
+		var x = randomBetween(0 + (target_radius * (aa/type.max_stability)), target_radius);
+		var y = randomBetween(0 + (target_radius * (aa/type.max_stability)), target_radius) - (i * (target_radius * 2) / stability);
 		ctx.arc(x, y, 1, 0, 2 * Math.PI);
 		ctx.stroke();
 	}
