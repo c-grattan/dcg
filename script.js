@@ -171,33 +171,37 @@ function generateContent()
 	
 	//Slot
 	var slot = type.name;
-	document.getElementById("slot").innerHTML = slot;
+	document.getElementById("slot").innerHTML = "Slot: " + slot;
 	
 	//Icon
 	
 	//Impact
 	var impact = randomBetween(type.min_damage, type.max_damage);
-	document.getElementById("impact").innerHTML = impact;
+	document.getElementById("impact").innerHTML = "Impact: " + impact;
 	
 	//Range
 	var range = randomBetween(type.min_range, type.max_range);
-	document.getElementById("range").innerHTML = range;
+	document.getElementById("range").innerHTML = "Range: " + range;
 	
 	//Stability
 	var stability = randomBetween(type.min_stability, type.max_stability);
-	document.getElementById("stability").innerHTML = stability;
+	document.getElementById("stability").innerHTML = "Stability: " + stability;
 	
 	//Handling
 	var handling = randomBetween(type.min_handling, type.max_handling);
-	document.getElementById("handling").innerHTML = handling;
+	document.getElementById("handling").innerHTML = "Handling: " + handling;
 	
 	//Reload speed
 	var reload_speed = randomBetween(type.min_reload_speed, type.max_reload_speed);
-	document.getElementById("reload_speed").innerHTML = reload_speed;
+	document.getElementById("reload_speed").innerHTML = "Reload speed: " + reload_speed;
 	
 	//RPM
 	var rpm = randomBetween(type.min_rpm, type.max_rpm);
-	document.getElementById("rpm").innerHTML = rpm;
+	document.getElementById("rpm").innerHTML = "Rounds per minute: " + rpm;
+	
+	//Mag size
+	var magSize = randomBetween(1, 100);
+	document.getElementById("mag_size").innerHTML = "Magazine size: " + magSize;
 	
 	//Aim assist
 	var aa = randomBetween(0, 100);
@@ -218,7 +222,7 @@ function generateContent()
 	
 	//Fire simulated shots at target
 	ctx.strokeStyle = "#ff0000";
-	for(var i = 0; i < randomBetween(1, 100); i++)
+	for(var i = 0; i < magSize; i++)
 	{
 		ctx.beginPath();
 		var x = randomBetween(0 + (target_radius * (aa/type.max_stability)), target_radius);
@@ -226,4 +230,6 @@ function generateContent()
 		ctx.arc(x, y, 1, 0, 2 * Math.PI);
 		ctx.stroke();
 	}
+	
+	//Unlock
 }
