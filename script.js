@@ -198,4 +198,32 @@ function generateContent()
 	//RPM
 	var rpm = randomBetween(type.min_rpm, type.max_rpm);
 	document.getElementById("rpm").innerHTML = rpm;
+	
+	//Aim assist
+	var aa = randomBetween(0, 100);
+	
+	//Draw target
+	var ctx = document.getElementById("aa").getContext("2d");
+	var target_radius = 50;
+	
+	ctx.clearRect(0, 0, (target_radius + 1) * 2, (target_radius + 1) * 2);
+	
+	ctx.strokeStyle = "#000000";
+	for(var i = 0; i < target_radius / 10; i++)
+	{
+		ctx.beginPath();
+		ctx.arc(target_radius + 1, target_radius + 1, target_radius - (10 * i), 0, 2 * Math.PI);
+		ctx.stroke();
+	}
+	
+	//Fire simulated shots at target
+	ctx.strokeStyle = "#ff0000";
+	for(var i = 0; i < randomBetween(1, 100); i++)
+	{
+		ctx.beginPath();
+		var x = randomBetween(0 + (target_radius * (aa/100)), target_radius);
+		var y = randomBetween(0 + (target_radius * (aa/100)), target_radius) - (i * (target_radius * 2) / stability);
+		ctx.arc(x, y, 1, 0, 2 * Math.PI);
+		ctx.stroke();
+	}
 }
