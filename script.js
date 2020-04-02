@@ -210,7 +210,7 @@ function generateContent()
 	var ctx = document.getElementById("aa").getContext("2d");
 	var target_radius = 70;
 	
-	ctx.clearRect(0, 0, (target_radius + 2) * 2, (target_radius + 2) * 2);
+	ctx.clearRect(0, 0, document.getElementById("aa").width, document.getElementById("aa").height);
 	
 	ctx.strokeStyle = "#000000";
 	for(var i = 0; i < target_radius / 10; i++)
