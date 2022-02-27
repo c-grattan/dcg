@@ -28,6 +28,8 @@ addWord("Thorn", "Thorns");
 addWord("Tommy", "Tommies");
 addWord("Ghoul", "Ghouls");
 addWord("Colony", "Colonies");
+addWord("Fuck", "Fucks");
+addWord("Cesspit", "Cesspits");
 
 //Slot values
 class Slot
